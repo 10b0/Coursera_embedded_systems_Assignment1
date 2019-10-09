@@ -27,8 +27,11 @@
  *
  * Print all the statistic of the array including
  * minimum, maximum, mean, and median.
+ *
+ * @param array The unsigned char array to print
+ * @param length The length of the array
  */
-void print_statistics();
+void print_statistics(unsigned char array[], unsigned int length);
 
 /**
  * @brief Print the array in the terminal

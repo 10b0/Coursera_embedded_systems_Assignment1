@@ -38,28 +38,130 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
+	print_statistics(test, SIZE);
 
 }
 
 /* Add other Implementation File Code Here */
-void print_statistics() {
+void print_statistics(unsigned char array[], unsigned int length) {
+
+	printf("\n-------------- Print Array -----------------\n");
+	print_array(array, length);
+    printf("\n-------------- Print Sort Array -----------------\n");
+	sort_array(array, length);
+
+	printf("\n-----------------Statistics:-------------------\n");
+	printf(" - Median: %d\n", find_median(array, length));
+	printf(" - Mean: %d\n", find_mean(array, length));
+	printf(" - Maximum: %d\n", find_maximum(array, length));
+	printf(" - Minimum: %d\n", find_minimum(array, length));
+	printf("\n------------------------------------------------\n");
 }
 
 void print_array(unsigned char array[], unsigned int length) {
+	int i;
+	int count = 0;
+	for(i = 0; i < length; i++) {
+		printf("A[%d]: %d \t", i, array[i]);
+		count++;
+		if(count > 4) {
+			printf("\n");
+			count = 0;
+		}
+	}
 }
 
 int find_median(unsigned char array[], unsigned int length) {
+	int medianIndex = length / 2;
+
+
+	int i = 0;
+	int auxIndex = 0;
+	unsigned char auxValue;
+    // Sort the Array
+	for(i = 1; i < length; i++) {
+		auxIndex = i;
+		while(auxIndex > 0) {
+			if(array[auxIndex] > array[auxIndex - 1]) {
+				//change the values
+				auxValue = array[auxIndex - 1];
+				array[auxIndex - 1] = array[auxIndex];
+				array[auxIndex] = auxValue;
+			}
+			auxIndex--;
+		}
+	}	
+
+	// afther sort the number take the middle number
+	if(length % 2 != 0) {
+		//if is odd number take the middle number
+		return array[medianIndex];
+	} else {
+		//if is an even number, calculated the mean of the two middlemost numbers
+		unsigned char meanArray[2];
+		meanArray[0] = array[medianIndex - 1];
+		meanArray[1] = array[medianIndex];
+		return find_mean(meanArray, 2);
+	}
 }
 
 int find_mean(unsigned char array[], unsigned int length) {
+    int adding = 0;  //acumulation of all the values
+	int i = 0;
+
+	// add all rhe number
+	for(i = 0; i < length; i++) {
+		adding += array[i];
+	}
+	// divide by the total of numbers
+	return adding/length;
 }
 
 int find_maximum(unsigned char array[], unsigned int length) {
+
+	int maxValue = array[0];
+	int i;
+	for(i = 1; i < length; i++) {
+		//if the value is greater
+		if(array[i] > array[i - 1]) {
+			maxValue = array[i];
+		}
+	}
+	return maxValue;	
 }
 
 int find_minimum(unsigned char array[], unsigned int length) {
+
+	int minValue = array[0];
+	int i;
+	for(i = 1; i < length; i++) {
+		//if the value is less
+		if(array[i] < array[i - 1]) {
+			minValue = array[i];
+		}
+	}	
+	return minValue;
 }
 
 void sort_array(unsigned char array[], unsigned int length) {
+	int i = 0;
+	int auxIndex = 0;
+	unsigned char auxValue;
+
+     // Sort the Array
+	for(i = 1; i < length; i++) {
+		auxIndex = i;
+		while(auxIndex > 0) {
+			if(array[auxIndex] > array[auxIndex - 1]) {
+				//changes the values
+				auxValue = array[auxIndex - 1];
+				array[auxIndex - 1] = array[auxIndex];
+				array[auxIndex] = auxValue;
+			}
+			auxIndex--;
+		}
+	}	
+
+	print_array(array, length);
 }
 
