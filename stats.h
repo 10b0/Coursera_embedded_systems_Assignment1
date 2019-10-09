@@ -9,32 +9,96 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.h 
+ * @brief The header file from the stats.c file
  *
- * <Add Extended Description Here>
+ * Here you can find the functions prototypes and their descriptions
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author David Alatorre
+ * @date 9/10/2019
  *
  */
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
+
+/**
+ * @brief Print the statistics in the terminal
+ *
+ * Print all the statistic of the array including
+ * minimum, maximum, mean, and median.
+ */
+void print_statistics();
+
+/**
+ * @brief Print the array in the terminal
+ *
+ * Recive the array and print it in the terminal
+ *
+ * @param array The unsigned char array to print
+ * @param length The length of the array
+ */
+void print_array(unsigned char array[], unsigned int length);
 
 /**
  * @brief <Add Brief Description of Function Here>
  *
  * <Add Extended Description Here>
  *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
+ * @param array The unsigned char array to print
+ * @param length The length of the array
  *
- * @return <Add Return Informaiton here>
+ * @return The median value
  */
+int find_median(unsigned char array[], unsigned int length);
+
+/**
+ * @brief <Add Brief Description of Function Here>
+ *
+ * <Add Extended Description Here>
+ *
+ * @param array The unsigned char array to print
+ * @param length The length of the array
+ *
+ * @return The mean value
+ */
+int find_mean(unsigned char array[], unsigned int length);
+
+
+/**
+ * @brief <Add Brief Description of Function Here>
+ *
+ * <Add Extended Description Here>
+ *
+ * @param array The unsigned char array to print
+ * @param length The length of the array
+ *
+ * @return The maximum value
+ */
+int find_maximum(unsigned char array[], unsigned int lenght);
+
+/**
+ * @brief <Add Brief Description of Function Here>
+ *
+ * <Add Extended Description Here>
+ *
+ * @param array The unsigned char array to print
+ * @param length The length of the array
+ *
+ * @return The minimum value
+ */
+int find_minimum(unsigned char array[], unsigned int length);
+
+
+/**
+ * @brief <Add Brief Description of Function Here>
+ *
+ * <Add Extended Description Here>
+ *
+ * @param array The unsigned char array to print
+ * @param length The length of the array
+ */
+void sort_array(unsigned char array[], unsigned int length);
 
 
 #endif /* __STATS_H__ */

@@ -9,13 +9,14 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c 
+ * @brief Calculate and print the statistics of the array
  *
- * <Add Extended Description Here>
+ * Calculate and print in the terminal the maximum, minimum, mean and media
+ * of the array values.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author David Alatorre
+ * @date 9/10/2019
  *
  */
 
@@ -41,3 +42,24 @@ void main() {
 }
 
 /* Add other Implementation File Code Here */
+void print_statistics() {
+}
+
+void print_array(unsigned char array[], unsigned int length) {
+}
+
+int find_median(unsigned char array[], unsigned int length) {
+}
+
+int find_mean(unsigned char array[], unsigned int length) {
+}
+
+int find_maximum(unsigned char array[], unsigned int length) {
+}
+
+int find_minimum(unsigned char array[], unsigned int length) {
+}
+
+void sort_array(unsigned char array[], unsigned int length) {
+}
+
